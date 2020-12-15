@@ -1,7 +1,7 @@
 //Create Default Varaibles//
 var nowDate = dayjs().format('dddd, DD MMMM YYYY');
 var nowHour = dayjs().format('h');
-var testHour = dayjs().hour();
+
 var nowMinute = dayjs().format('mm');
 var now12 = dayjs().format('A');
 var nowEvents = [];
@@ -80,17 +80,15 @@ for (p = 0; p < 3; p++) {
    if (p === 0) {
        var displayTime = $("<div>");
        displayTime.text(timeblock[i].showTime);
-       displayTime.attr("class", "col-2 hour block");
+       displayTime.attr("class", "hours");
    } 
    
 
    //Textarea column//
    else if (p === 1) {
        var plannerInput = $("<textarea>");
-       
-   } else {
-       
-   };
+
+   }
    
    //Change color code//
 
