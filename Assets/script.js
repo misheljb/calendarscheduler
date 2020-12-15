@@ -94,6 +94,9 @@ for (p = 0; p < 3; p++) {
    }
    
    //Change color code//
+   //if (condition) {
+       
+   //} 
 
 
    //Save button column//
@@ -112,7 +115,10 @@ $(row).append(displayTime, plannerInput, saveButton);
 
 //build click event//
 $(".saveButton").on("click", function () {
-    savingStorage();
+    var savingTime = $(this).siblings(".hour").attr("id");
+    console.log(savingTime)
+    var valTime = ("<>");
+    localStorage.setItem(savingTime, valTime)
 });
 
 //Clear local storage//
@@ -123,7 +129,5 @@ function clearStorage(){
 //Storing into local storage//
 function savingStorage(){
     console.log("savingStorage");
-    var savingTime = $(this).siblings(".hour")//.attr("id");
-    console.log(savingTime)
-    //var valTime
+  
 }
