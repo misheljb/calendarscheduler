@@ -71,7 +71,7 @@ var timeblock = [
 //Create timeblock rows//
 for (i = 0; i < timeblock.length; i++) {
 var row = $("<div>");
-row.attr("timeblock")
+row.attr("class", "timeblock")
 $(".container").append(row);
 
 
@@ -80,13 +80,16 @@ for (p = 0; p < 3; p++) {
    if (p === 0) {
        var displayTime = $("<div>");
        displayTime.text(timeblock[i].showTime);
-       displayTime.attr("class", "hours");
+       displayTime.attr("id", timeblock[i].time);
+       displayTime.attr("class", "hour");
    } 
    
 
    //Textarea column//
    else if (p === 1) {
        var plannerInput = $("<textarea>");
+       plannerInput.attr("class", "textarea");
+       console.log("plannerInput")
 
    }
    
@@ -103,9 +106,14 @@ else if (p === 2) {
 
 };
 
-$(row).append(displayTime, saveButton);
+$(row).append(displayTime, plannerInput, saveButton);
 
 }
+
+//build click event//
+$(".saveButton").on("click", function () {
+    savingStorage();
+});
 
 //Clear local storage//
 function clearStorage(){
@@ -113,3 +121,9 @@ function clearStorage(){
 }
 
 //Storing into local storage//
+function savingStorage(){
+    console.log("savingStorage");
+    var savingTime = $(this).siblings(".hour")//.attr("id");
+    console.log(savingTime)
+    //var valTime
+}
