@@ -1,12 +1,18 @@
 //Create Default Varaibles//
 var nowDate = dayjs().format('dddd, DD MMMM YYYY');
 var nowHour = dayjs().format('h');
-
 var nowMinute = dayjs().format('mm');
 var now12 = dayjs().format('A');
 var nowEvents = [];
 
 $("#nowDate").text(nowHour + ":" + nowMinute + now12 + " " + nowDate);
+
+//Header date and time Display//
+var newDate = new Date ();
+var displaynewDate = $("<p>");
+$(displaynewDate).text(val);
+$("#jumbotron").append(displaynewDate);
+
 
 //Make an array for each hour//
 
@@ -90,13 +96,21 @@ for (p = 0; p < 3; p++) {
        var plannerInput = $("<textarea>");
        plannerInput.attr("class", "textarea");
        console.log("plannerInput")
-
-   }
-   
+  
    //Change color code//
-   //if (condition) {
-       
-   //} 
+   var testHour =dayjs().hour();
+
+   if (testHour === timeblock[i].time) {
+       $(plannerInput).addClass("present");
+   } 
+   else if (testHour > timeblock[i].time) {
+       $(plannerInput).addClass("past");
+
+   } 
+   else {
+       $(plannerInput).addClass("future")
+   }
+   }
 
 
    //Save button column//
@@ -117,7 +131,7 @@ $(row).append(displayTime, plannerInput, saveButton);
 $(".saveButton").on("click", function () {
     var savingTime = $(this).siblings(".hour").attr("id");
     console.log(savingTime)
-    var valTime = ("<>");
+    var valTime = $(this).siblings("").attr("textarea");
     localStorage.setItem(savingTime, valTime)
 });
 
