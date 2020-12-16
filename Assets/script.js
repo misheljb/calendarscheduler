@@ -120,6 +120,7 @@ else if (p === 2) {
     var saveButton = $("<button>");
     saveButton.val(i);
     saveButton.attr("class", "col-2 saveButton" );
+    saveButton.text("save")
     
 }
 
