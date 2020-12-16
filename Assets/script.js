@@ -8,10 +8,10 @@ var nowEvents = [];
 $("#nowDate").text(nowHour + ":" + nowMinute + now12 + " " + nowDate);
 
 //Header date and time Display//
-var newDate = new Date ();
-var displaynewDate = $("<p>");
-$(displaynewDate).text(val);
-$("#jumbotron").append(displaynewDate);
+//var newDate = new Date ();
+//var displaynewDate = $("<p>");
+//$(displaynewDate).text(val);
+//$("#jumbotron").append(displaynewDate);
 
 
 //Make an array for each hour//
@@ -95,6 +95,7 @@ for (p = 0; p < 3; p++) {
    else if (p === 1) {
        var plannerInput = $("<textarea>");
        plannerInput.attr("class", "textarea");
+       plannerInput.attr('class', 'col-8 description');
        console.log("plannerInput")
   
    //Change color code//
@@ -116,9 +117,10 @@ for (p = 0; p < 3; p++) {
    //Save button column//
 
 else if (p === 2) {
-    var saveButton =$("<button>");
+    var saveButton = $("<button>");
     saveButton.val(i);
-    saveButton.attr("class", "col-2 saveButton");
+    saveButton.attr("class", "col-2 saveButton" );
+    
 }
 
 };
